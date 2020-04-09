@@ -16,5 +16,9 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('uniblog/create', 'Admin\UniblogController@add');
+    Route::get('blog/create', 'Admin\UniblogController@add')->middleware('auth');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
