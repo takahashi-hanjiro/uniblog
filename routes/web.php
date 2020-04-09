@@ -15,8 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('blog/create', 'Admin\UniblogController@add')->middleware('auth');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     Route::get('blog/create', 'Admin\UniblogController@add');
+     Route::post('blog/create', 'Admin\UniblogController@create'); 
 });
 
 Auth::routes();

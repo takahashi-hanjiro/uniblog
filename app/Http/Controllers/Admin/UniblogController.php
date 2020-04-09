@@ -11,4 +11,10 @@ class Uniblogcontroller extends Controller
     {
         return view('admin.blog.create');
     }
+    
+     public function create(Request $request)
+  {
+      
+      return redirect('admin/blog/create');
+  }
 }
